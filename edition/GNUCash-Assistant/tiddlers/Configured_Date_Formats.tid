@@ -1,0 +1,7 @@
+created: 20151025124929271
+modified: 20160123170353325
+tags: Configuration
+title: Configured Date Formats
+type: application/x-tiddler-dictionary
+
+DD-MM-YYYY:(\d{1,2})[-\s\/](\d{1,2})[-\s\/](\d{2,4})

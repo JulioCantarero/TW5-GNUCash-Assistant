@@ -1,0 +1,44 @@
+created: 20150815075300298
+modified: 20160123170353311
+tags: 
+title: Plugin to Generate QIF Files from Bank Transactions
+type: text/vnd.tiddlywiki
+
+!!Procedure
+
+*Import the bank transactions data either:
+**from the bank web page using ~TiddlyClip defined rules: 
+***One rule per bank account, appending new information to tiddler if it exist, making sure it has the right fields: ``account-name`` & ``account-type``
+**Copy and pasting from the Excel downloaded if the web view trims off vaulable information or add annoying extra columns like Account Balance
+*Manually on each account transsaction tiddlers you can manually do:
+**Note that amounts must use ``,``, not ``.`` for decimal. GNU Cash complains otherwise.
+**You can use the ``\prefix-description`` pragma to add a prefix to the description of all subsequent transactions
+***Use ``\prefix-description`` on its own (no text afterwards) to stop the addition of the prefix text to subsequent transactions.
+***For your peace of mind, the pragma only takes effect in the tiddler where it is used (i.e. it does not extend across tiddlers)
+**You can use the ``\change-sign`` pragma to invert the sign of the amounts following the pragma
+***Enable changing the sign of the amounts just with ``\change-sign``, and disable it using ``\change-sign off``. 
+***For your peace of mind, the pragma only takes effect in the tiddler where it is used (i.e. it does not extend across tiddlers, even if ``\change-sign off`` is not used)
+**Allow definition of ``\split-item`` pragma, most notably for the salary, but also for benefits taxes (19%) etc.
+***Format is ``\split-item`` ``Description`` ``<<Amount XX,xx>>``  ``<<Peer Account in GNUCash colon format Assets:Bank:Checking Account>>``
+***You can omit the last piece of information (``<<Peer Account in GNUCash colon format Assets:Bank:Checking Account>>``) in each split item it is the same as the split inmediately above.
+***The amounts in the split items with negative sign add to the main amount, and with positive sign deduct from it.
+**You can use ``\to-account`` to enter the //to// account in a simple transaction, and thus specify the double-entry transaction completely in the QIF file.
+***If you do not add this pragma after an entry, the transaction is created by without a //to// account, so you will have to fill this information in GNUCash. This is generally easier than using this pragma. This pragma is however useful for transactions between Bank accounts that appear therefore twice, once in the data from each of the Bank accounts. By using this pragma, you can remove one at this stage and make sure the transaction will be applied between the two of them, minimising the risk of a mistake.
+*Process all of the account Tiddlers at once  using the ``<<qifoutput>>`` ~JavaScript macro  I created
+*Export the QIF format tiddler as Wikified text. 
+**All accounts go in a single file
+
+TBD:
+
+*template to add transactions choosing the ``account-name`` & ``account-type`` from drop-down lists
+*Import or copy/paste CSV account names from GNUCash. Be aware that GNUCash account type is not the same as QIF ``account-type``
+*Keep the imported information or clean it after export?
+*Allow the user to choose a date from which to export data? Using Date picker JS macro.
+*Be able to copy and delete at column level to remove annoying extra dates or account balance information when copying HTML view contents
+
+!!Links
+
+*https://github.com/Gnucash/gnucash/blob/master/src/import-export/qif-imp/file-format.txt
+*https://en.wikipedia.org/wiki/Quicken_Interchange_Format
+*http://linuxfinances.info/info/financeformats.html
+*http://gnucash.1415818.n4.nabble.com/QIF-import-split-transaction-mis-format-td1434153.html

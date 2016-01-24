@@ -1,0 +1,9 @@
+created: 20150830113508646
+modified: 20160123170353309
+tags: 
+title: QIF Output
+type: text/vnd.tiddlywiki
+
+<pre>
+<<qifoutput filter:"""[tag[Exportar]]""" >>
+</pre>

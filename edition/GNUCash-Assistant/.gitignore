@@ -1,0 +1,4 @@
+
+# ignore file in these paths
+src/note_modules/
+src/jsdoc/templates/docstrap/

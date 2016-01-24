@@ -1,0 +1,26 @@
+created: 20150829121121781
+modified: 20160123170353293
+tags: 
+title: Split Transactions Examples
+type: text/plain
+
+D6/15/95 (Date 2nd transaction)
+T-75.46 (Amount 2nd transaction)
+CX (Status in Cleared column)
+N256 (Number)
+PWalts Drugs (Payee)
+LSupplies (Category/class)
+SSupplies (First category in split)
+EOffice supplies (First memo in split)
+$-36.00 (First amount in split)
+SGarden (Second memo in split)
+$-39.46 (Second amount in split)
+^ (Ends 2nd transaction)
+
+SLiabilities:VAT Control
+EVAT on supply - new account - spelling is critical
+$-15.00
+SIncome:Sales
+EA sale
+$-100.00
+^ 

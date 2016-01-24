@@ -1,0 +1,12 @@
+created: 20150830102235358
+description: Wikified Text File
+extension: .qif
+modified: 20160123170353230
+tags: $:/tags/Exporter
+title: $:/exporter/WikifiedTextFile
+type: text/vnd.tiddlywiki
+
+\define renderContent()
+{{{ $(exportFilter)$ ||$:/core/templates/wikified-tiddler}}}
+\end
+<<renderContent>>

@@ -1,0 +1,8 @@
+created: 20151024185347284
+modified: 20160123170353329
+tags: Configuration
+title: Configured Account Types
+type: application/x-tiddler-dictionary
+
+Bank Account:Bank
+Credit Card Account:CCard

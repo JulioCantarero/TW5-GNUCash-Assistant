@@ -1,0 +1,12 @@
+created: 20150814164038698
+description: Plain Text File
+extension: .txt
+modified: 20160123170353233
+tags: $:/tags/Exporter
+title: $:/exporter/TextFile
+type: text/vnd.tiddlywiki
+
+\define renderContent()
+{{{ $(exportFilter)$ ||$:/core/templates/plain-text-tiddler}}}
+\end
+<<renderContent>>

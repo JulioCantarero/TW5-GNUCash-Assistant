@@ -1,0 +1,157 @@
+created: 20150830105957448
+modified: 20160123170353282
+module-type: macro
+tags: 
+title: $:/macros/julioc/qifoutput.js
+type: application/javascript
+
+/*\
+title: $:/macros/julioc/qifoutput.js
+type: application/javascript
+module-type: macro
+
+Process plain text bank trasactions in a selection of tiddlers and generate a single QIF output for all of them,
+that GNU Cash software can import.
+
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+"use strict";
+
+/*
+Information about this macro
+*/
+
+exports.name = "qifoutput";
+
+exports.params = [
+	{name: "filter"},
+	{name: "format"},
+];
+
+/*
+Run the macro
+*/
+exports.run = function(filter,format) {
+	var self = this,
+		tiddlers = this.wiki.filterTiddlers(filter),
+		tiddler,
+		fields = [],
+		t,f;
+	var qifAccountHdrTemplate = "!Account\n" +
+                                "N<ACCOUNT_NAME>\n" +
+                                "^\n" +
+                                "!Type:<ACCOUNT_TYPE>\n";
+	var qifTransactionTemplate =  "D<DATE>\n" +
+                                  "T<AMOUNT>\n" +
+                                  "M<DESCRIPTION>\n";
+	var qifPairedAccountTemplate =  "L<PAIRED_ACCOUNT>\n";
+	var qifSplitEntryTemplate =  "S<SPLIT_ACCOUNT>\n" +
+                                  "E<DESCRIPTION>\n" +
+                                  "$<AMOUNT>\n";
+
+    var rePragmaPrefixDescription = /^\\prefix-description\s+(.*)$/;
+    var rePragmaPairedAccount = /^\\to-account\s+(.*)$/;
+    var rePragmaTransactionSplitItem = /^\\split-item\s+(.*)$/;
+    var rePragmaChangeAmountSign = /^\\change-sign\s*(.*)$/;
+  	var reDisable= /off|false|disable|no/ig;
+   	var rePragmaSafeComment = /^\\comment\s*(.*)$/;
+
+	var QIFoutput = "",
+    	tempArray, tempString, tempStrPosition,  
+        transactionDate, transactionAmount, description, prefixDescription, changeSign, splitAccount;
+
+	// Process the text of each tiddler one by one and add it to the output
+	for(t=0;t<tiddlers.length; t++) {
+		tiddler = this.wiki.getTiddler(tiddlers[t]);
+        
+        //Asumption: Date is at the beginning of the transaction line like DD MM YYYY
+        //var reDate = /\s*(\d{1,2})[- \/](\d{1,2})[- \/](\d{2,4})\s+(.*)/;
+        //var reAmount= /([-]?\d+(?:[.,]\d{1,3}){1,3})/g; //I am not considering the EUR or € currency symbol
+
+        var strRegexDate= tiddler.fields["date-format-regex"];
+        var strRegexAmount= tiddler.fields["amount-format-regex"];
+        if ((!strRegexDate) || (!strRegexAmount)) { continue; }
+        //Add processing to detect and remove [[ and ]] around regex fields, which will happen when an space is included in the Regex def
+        var reDate= new RegExp(strRegexDate, "g");
+		var reAmount= new RegExp(strRegexAmount, "g");
+        
+		QIFoutput += qifAccountHdrTemplate.replace("<ACCOUNT_NAME>",tiddler.fields["account-name"])
+  					.replace("<ACCOUNT_TYPE>",tiddler.fields["account-type"]);
+        //Avoid Pragma \prefix-description & \change-sign from previous tiddler to affect this one 
+		prefixDescription = "";  
+		changeSign= false; 
+		var text = tiddler.getFieldString("text") || ""; //var text=this.wiki.getTiddlerText(title) 
+		var lines = text.match(/[^\r\n]+/g); //.split(/\r\n|\n|\r/);
+		var firstTransaction = true;
+		for (var i = 0; i < lines.length; i++) {
+            if((tempArray = rePragmaPrefixDescription.exec(lines[i])) !== null) {
+            	prefixDescription = tempArray[1]; // Better not to trim so that you can add spaces at the end of the prefix
+            }
+            else if((tempArray = rePragmaSafeComment.exec(lines[i])) !== null) {
+				//do nothing with this line, it is a comment!
+			}
+            else if((tempArray = rePragmaChangeAmountSign.exec(lines[i])) !== null) {
+            	tempString = tempArray[1].trim();
+            	if (reDisable.exec(tempString)!== null) { changeSign= false; }
+                else { changeSign= true; }
+            }
+            else if((tempArray = rePragmaPairedAccount.exec(lines[i])) !== null) {
+            	tempString = tempArray[1].trim();
+                QIFoutput += qifPairedAccountTemplate.replace("<PAIRED_ACCOUNT>",tempString);
+            }
+           else if((tempArray = rePragmaTransactionSplitItem.exec(lines[i])) !== null) {
+            	tempString = tempArray[1].trim();
+                while ((tempArray = reAmount.exec(tempString)) !== null) {  //Iterates to find the last occurence
+                	transactionAmount = tempArray[1]; 
+                    tempStrPosition = tempArray.index;
+				}
+				reAmount.lastIndex = 0;
+                description = tempString.substr(0, tempStrPosition).trim();
+                description = prefixDescription + description;
+				if ( tempStrPosition + transactionAmount.length < tempString.length ) { //If there is no split account, keep using the previous one
+                	splitAccount = tempString.substr(tempStrPosition + transactionAmount.length).trim();
+                }
+                if(changeSign) {
+                	if((transactionAmount.substr(0, 1)) === "-") {  transactionAmount = transactionAmount.substr(1, transactionAmount.length - 1); }
+                	else { transactionAmount = "-" + transactionAmount;}
+                }
+                QIFoutput += qifSplitEntryTemplate.replace("<SPLIT_ACCOUNT>",splitAccount)
+                                .replace("<AMOUNT>",transactionAmount)
+                                .replace("<DESCRIPTION>",description);
+           }
+           else if((tempArray = reDate.exec(lines[i])) !== null) {
+				transactionDate = tempArray[3] + "/" + tempArray[2] + "/" + tempArray[1];
+            	//tempString = lines[i].replace(tempArray[0],''); //Only deletes the first occurence
+            	tempString = lines[i].substr(reDate.lastIndex); //Until the end, as the second length param of substr is missing
+				reDate.lastIndex = 0;
+				//var reAmount= new RegExp(strRegexAmount, "g"); //Regex var created here so that it is fresh new for each line processed. 
+                while ((tempArray = reAmount.exec(tempString)) !== null) {  //Iterates to find the last occurence
+                	transactionAmount = tempArray[1]; 
+                    tempStrPosition = tempArray.index;
+				}
+				reAmount.lastIndex = 0;
+                if(changeSign) {
+                	if((transactionAmount.substr(0, 1)) === "-") {  transactionAmount = transactionAmount.substr(1, transactionAmount.length - 1); }
+                	else { transactionAmount = "-" + transactionAmount;}
+                }
+                description = tempString.substr(0, tempStrPosition).trim();
+                description = prefixDescription + description;
+                if(!firstTransaction) {
+                    //After the first transaction, subsequent transact have to start inserting the separator line ^
+                    QIFoutput += "^\n";
+                }
+                else { firstTransaction = false; }
+                QIFoutput += qifTransactionTemplate.replace("<DATE>",transactionDate)
+                .replace("<AMOUNT>",transactionAmount)
+                .replace("<DESCRIPTION>",description);
+            }
+		}
+        QIFoutput += "^\n"; //At the end of every tiddler, insert a separator line ^
+  	}
+	return QIFoutput;
+};
+
+})();

@@ -1,0 +1,10 @@
+created: 20151025124202176
+modified: 20160123170353327
+tags: Configuration
+title: Configured Amount Formats
+type: application/x-tiddler-dictionary
+
+XX.XXX[,XX] (Point as thousands mark -Optional- and Comma as decimal mark is there are decimal digits):([-]?\d+(?:\.\d{3})*(?:\,\d+)*)
+XX,XXX[.XX] (Comma as thousands mark -Optional- and Point as decimal mark is there are decimal digits):([-]?\d+(?:\,\d{3})*(?:\.\d+)*)
+XX.XXX,XX (Point as thousands mark, Comma as decimal mark, at least 1 decimal):([-]?\d+(?:\.\d{3})*\,\d+)
+XX,XXX.XX (Comma as thousands mark, Point as decimal mark, at least 1 decimal):([-]?\d+(?:\,\d{3})*\.\d+)

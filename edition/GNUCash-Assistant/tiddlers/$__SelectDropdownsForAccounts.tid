@@ -1,0 +1,45 @@
+created: 20151024165813293
+list-after: $:/core/ui/EditTemplate/body
+modified: 20160123170353280
+tags: $:/tags/EditTemplate
+title: $:/SelectDropdownsForAccounts
+type: text/vnd.tiddlywiki
+
+<$list filter="[all[current]tag[Account]]">
+
+Account Type: <$select field="account-type">
+<option value=''></option>
+<$list filter="[[Configured Account Types]indexes[]sort[title]]" variable="key">
+<$set name="val" filter="[[Configured Account Types]getindex<key>]">
+<option value=<<val>>><<key>></option>
+</$set>
+</$list>
+</$select>
+
+Account Name in GNUCash: <$select field="account-name">
+<option value=''></option>
+<$list filter="[[Configured Account Names]indexes[]sort[title]]" variable="key">
+<option><<key>></option>
+</$set>
+</$list>
+</$select> 
+
+Date Format: <$select field="date-format-regex">
+<option value=''></option>
+<$list filter="[[Configured Date Formats]indexes[]]" variable="key">
+<$set name="val" filter="[[Configured Date Formats]getindex<key>]">
+<option value=<<val>>><<key>></option>
+</$set>
+</$list>
+</$select>
+
+Amount Format: <$select field="amount-format-regex">
+<option value=''></option>
+<$list filter="[[Configured Amount Formats]indexes[]]" variable="key">
+<$set name="val" filter="[[Configured Amount Formats]getindex<key>]">
+<option value=<<val>>><<key>></option>
+</$set>
+</$list>
+</$select>
+
+</$list>
