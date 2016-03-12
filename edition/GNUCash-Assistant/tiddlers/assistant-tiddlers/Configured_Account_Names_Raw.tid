@@ -1,0 +1,152 @@
+created: 20151024190250362
+modified: 20160123170353331
+tags: 
+title: Configured Account Names Raw
+type: text/plain
+
+Activo:Activo Circulante:Metalico
+Activo:Activo Circulante:Bankinter
+Activo:Activo Circulante:Bankinter:Depósito
+Activo:Activo Circulante:Bankinter:Cuenta Nómina
+Activo:Activo Circulante:En Transferencia
+Activo:Activo Circulante:EVO Banco
+Activo:Activo Circulante:EVO Banco:Cuenta Corriente
+Activo:Activo Circulante:EVO Banco:Deposito Asociado
+Activo:Activo Circulante:Banco Popular-e
+Activo:Activo Circulante:Banco Popular-e:Deposito
+Activo:Activo Circulante:Banco Popular-e:Cuenta Corriente
+Activo:Activo Circulante:BBVA
+Activo:Activo Circulante:BBVA:Cuenta Nómina
+Activo:Activo Circulante:ING Direct
+Activo:Activo Circulante:ING Direct:Cuenta Naranja
+Activo:Activo Circulante:ING Direct:Cuenta Nomina
+Activo:Activo Circulante:ING Direct:Depósito
+Activo:Activo Circulante:Open Bank
+Activo:Activo Circulante:Open Bank:Cuenta Corriente Operativa
+Activo:Activo Circulante:Open Bank:Cuenta Open
+Activo:Activo Circulante:Open Bank:Depósito
+Activo:Activo Circulante:Open Bank:E-Cuenta
+Activo:Activo Circulante:Open Bank:E-Deposito Open 25 Meses
+Activo:Activo Circulante:Santander
+Activo:Activo Circulante:Santander:Cuenta Común
+Activo:Activo Circulante:Santander:Mi Cuenta
+Activo:Activo Circulante:UNOe
+Activo:Activo Circulante:UNOe:Cuenta Corriente
+Activo:Activo Circulante:UNOe:Deposito
+Activo:Dinero Prestado
+Activo:Dinero Prestado:Prestado a Alejandro
+Activo:Dinero Prestado:Prestado a Daniela Micu
+Activo:Dinero Prestado:Prestamo a Carlos
+Activo:Inversiones
+Activo:Inversiones:ING
+Activo:Inversiones:ING:Broker Naranja
+Activo:Inversiones:ING:Broker Naranja:TEF
+Activo:Inversiones:Fondos de Pensiones
+Activo:Inversiones:Fondos de Pensiones:ING P.P. Direct SP500
+Activo:Inversiones:Fondos de Pensiones:ING P.P. Renta Fija Europea
+Activo:Inversiones:Fondos de Pensiones:Zurich
+Pasivo
+Pasivo:Tarjetas de Crédito
+Pasivo:Tarjetas de Crédito:AMEX
+Pasivo:Tarjetas de Crédito:Bankinter Visa Oro
+Pasivo:Tarjetas de Crédito:Santander MasterCard Antigua Cuenta Común
+Pasivo:Tarjetas de Crédito:Santander Visa Cuenta Comun
+Pasivo:Tarjetas de Crédito:Union Fenosa
+Pasivo:Prestamos
+Pasivo:Prestamos:De Pilar
+Ingresos
+Ingresos:Acciones
+Ingresos:Acciones:Dividendos
+Ingresos:Aportaciones de Pilar
+Ingresos:Intereses
+Ingresos:Intereses:Cuentas
+Ingresos:Intereses:Depositos
+Ingresos:Otros
+Ingresos:Otros:Bonificaciones Tarjetas
+Ingresos:Otros:Esporadicos
+Ingresos:Otros:Fondos para Apuestas Compartidas
+Ingresos:Otros:Regalos en Metalico
+Ingresos:Otros:Regularización Compras Tarjeta Comun por Pilar
+Ingresos:Profesionales
+Ingresos:Profesionales:Bonus
+Ingresos:Profesionales:Devolución de Gastos
+Ingresos:Profesionales:Salario
+Gastos
+Gastos:Alimentación
+Gastos:Bancos
+Gastos:Bancos:Comisiones Acciones
+Gastos:Comunes
+Gastos:Comunes:Agua
+Gastos:Comunes:Coches
+Gastos:Comunes:Coches:Gasolina
+Gastos:Comunes:Coches:Mantenimiento
+Gastos:Comunes:Coches:Multas de Tráfico
+Gastos:Comunes:Coches:Parking
+Gastos:Comunes:Coches:Seguro
+Gastos:Comunes:Comunidad
+Gastos:Comunes:Electricidad
+Gastos:Comunes:Gas
+Gastos:Comunes:Impuestos
+Gastos:Comunes:Impuestos:I.B.I.
+Gastos:Comunes:Impuestos:I.V.T.M.
+Gastos:Comunes:Impuestos:Recogida de Basura
+Gastos:Comunes:Limpieza
+Gastos:Comunes:Limpieza:Seguridad Social
+Gastos:Comunes:Limpieza de Casa
+Gastos:Comunes:Limpieza de Casa:Seguridad Social
+Gastos:Comunes:Limpieza de Casa:Sueldo
+Gastos:Comunes:Loterias y Apuetas
+Gastos:Comunes:Menaje y Muebles
+Gastos:Comunes:Móvil Julio
+Gastos:Comunes:Móvil Pilar
+Gastos:Comunes:Otros
+Gastos:Comunes:Otros:Bares y Restaurantes
+Gastos:Comunes:Otros:Cosmetica y Drogueria
+Gastos:Comunes:Otros:Seguro Casa
+Gastos:Comunes:Regalos
+Gastos:Comunes:Ropa y Calzado
+Gastos:Comunes:Sanidad
+Gastos:Comunes:Sanidad:Farmacia
+Gastos:Comunes:Sanidad:Optica y Oftalmología
+Gastos:Comunes:Sanidad:Sanitas Julio
+Gastos:Comunes:Sanidad:Sanitas Pilar
+Gastos:Comunes:Sin Categoria
+Gastos:Comunes:Supermercado
+Gastos:Comunes:Taxis
+Gastos:Comunes:Telefono e Internet 
+Gastos:Comunes:Transporte
+Gastos:Comunes:Vacaciones
+Gastos:Educación
+Gastos:Educación:Inglés
+Gastos:Electronica e Informatica
+Gastos:Hobbies
+Gastos:Hobbies:Fotografía
+Gastos:Hobbies:Piscina
+Gastos:Impuestos
+Gastos:Impuestos:Cotizaciones
+Gastos:Impuestos:Cotizaciones:Contingencias Comunes
+Gastos:Impuestos:Cotizaciones:Desempleo
+Gastos:Impuestos:IRPF
+Gastos:Impuestos:Otros
+Gastos:Otros
+Gastos:Otros:Apuestas Compartidas
+Gastos:Otros:Esporadicos
+Gastos:Otros:Tintoreria
+Gastos:Otros:Transporte
+Gastos:Personales de Pilar
+Gastos:Profesionales
+Gastos:Profesionales:Clientes
+Gastos:Profesionales:Colegio Ingenieros
+Gastos:Profesionales:Viajes
+Gastos:Regalos
+Gastos:Regalos:Pilar
+Gastos:Ropa y Calzado
+Gastos:Sanidad
+Gastos:Sanidad:Dentista
+Gastos:Sanidad:Farmacia
+Gastos:Sanidad:Optica y Oftalmologia (Personal)
+Gastos:Sin Categoria
+Unspecified
+Equity
+Equity:Opening Balances
+Imbalance-EUR

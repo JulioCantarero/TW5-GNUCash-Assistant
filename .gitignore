@@ -1,7 +1,18 @@
 # ignore some state tiddlers
 **/*StoryList.tid
 
-# ignore file in these paths
-edition/GNUCash-Assistant/tiddlers/realdata/
-edition/GNUCash-Assistant/tiddlers/TiddlyClipToAdapt/
+# ignore everything except files in specfic folders, to avoid including real into in GitHub
+# The trailing /* is significant.
+edition/GNUCash-Assistant/tiddlers/*
+!edition/GNUCash-Assistant/tiddlers/demodata/
+!edition/GNUCash-Assistant/tiddlers/assistant-tiddlers/
+!edition/GNUCash-Assistant/tiddlers/$__config_AutoSave.tid
+!edition/GNUCash-Assistant/tiddlers/$__DefaultTiddlers.tid
+!edition/GNUCash-Assistant/tiddlers/$__themes_tiddlywiki_vanilla_options_sidebarlayout.tid
+!edition/GNUCash-Assistant/tiddlers/$__exporter_TextFile.tid
+!edition/GNUCash-Assistant/tiddlers/$__exporter_WikifiedTextFile.tid
+!edition/GNUCash-Assistant/tiddlers/$__macros_julioc_qifoutput.js.tid
+!edition/GNUCash-Assistant/tiddlers/$__SelectDropdownsForAccounts.tid
+!edition/GNUCash-Assistant/tiddlers/$__SiteSubtitle.tid
+!edition/GNUCash-Assistant/tiddlers/$__SiteTitle.tid            
 

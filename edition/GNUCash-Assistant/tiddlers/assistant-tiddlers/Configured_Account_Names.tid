@@ -1,0 +1,27 @@
+created: 20151024174343837
+modified: 20160129194224309
+tags: Configuration
+title: Configured Account Names
+type: application/json
+
+{
+	"Activo:Activo Circulante:EVO Banco:Cuenta Corriente" : null ,
+	"Activo:Activo Circulante:EVO Banco:Deposito Asociado" : null ,
+	"Activo:Activo Circulante:Banco Popular-e:Deposito" : null ,
+	"Activo:Activo Circulante:Banco Popular-e:Cuenta Corriente" : null ,
+	"Activo:Activo Circulante:COINC (Bankinter):Cuenta Corriente" : null ,
+	"Activo:Activo Circulante:ING Direct:Cuenta Naranja" : null ,
+	"Activo:Activo Circulante:ING Direct:Cuenta Nomina" : null ,
+	"Activo:Activo Circulante:ING Direct:Depósito" : null ,
+	"Activo:Activo Circulante:Open Bank:Cuenta Corriente Operativa" : null ,
+	"Activo:Activo Circulante:Open Bank:Cuenta Open" : null ,
+	"Activo:Activo Circulante:Open Bank:Depósito" : null ,
+	"Activo:Activo Circulante:Open Bank:E-Cuenta" : null ,
+	"Activo:Activo Circulante:Open Bank:E-Deposito Open 25 Meses" : null ,
+	"Activo:Activo Circulante:Santander:Cuenta Común" : null ,
+	"Activo:Activo Circulante:Santander:Mi Cuenta" : null ,
+	"Activo:Activo Circulante:UNOe:Cuenta Corriente" : null ,
+	"Activo:Activo Circulante:UNOe:Deposito" : null ,
+	"Pasivo:Tarjetas de Crédito:Santander Visa Cuenta Comun" : null ,
+	"Pasivo:Tarjetas de Crédito:Union Fenosa" : null
+}
